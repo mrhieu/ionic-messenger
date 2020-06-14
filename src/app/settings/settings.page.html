@@ -1,0 +1,84 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="dark" (click)="closeModal()">
+        Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding ion-text-center">
+    <ion-avatar class="avatar-lg">
+      <img src="assets/img/avatars/7.jpg" alt="">
+    </ion-avatar>
+    <h3><strong>Hieu Pham</strong></h3>
+  </div>
+
+  <ion-list>
+    <ion-item detail>
+      <ion-icon name="checkmark-done-circle" color="success" slot="start"></ion-icon>
+      <ion-label>
+        Active Status
+      </ion-label>
+      <ion-note slot="end">On</ion-note>
+    </ion-item>
+    <ion-item detail>
+      <ion-icon name="chatbubble-ellipses" color="primary" slot="start"></ion-icon>
+      <ion-label>
+        Message requests
+      </ion-label>
+    </ion-item>
+    <ion-item detail lines="none">
+      <ion-icon name="call" color="primary" slot="start"></ion-icon>
+      <ion-label>
+        Mobile number
+      </ion-label>
+    </ion-item>
+
+    <ion-list-header class="list-header-custom">
+      Preferences
+    </ion-list-header>
+    <ion-item detail>
+      <ion-icon name="notifications-circle" color="tertiary" slot="start"></ion-icon>
+      <ion-label>
+        Notification & sounds
+      </ion-label>
+      <ion-note slot="end">On</ion-note>
+    </ion-item>
+    <ion-item detail>
+      <ion-icon name="people" color="tertiary" slot="start"></ion-icon>
+      <ion-label>
+        People
+      </ion-label>
+    </ion-item>
+    <ion-item detail>
+      <ion-icon name="chatbubble" color="primary" slot="start"></ion-icon>
+      <ion-label>
+        Messaging settings
+      </ion-label>
+    </ion-item>
+    <ion-item detail>
+      <ion-icon name="albums" color="danger" slot="start"></ion-icon>
+      <ion-label>
+        Story
+      </ion-label>
+    </ion-item>
+    <ion-item detail lines="none">
+      <ion-icon name="lock-closed" color="dark" slot="start"></ion-icon>
+      <ion-label>
+        Secret conversations
+      </ion-label>
+    </ion-item>
+
+    <ion-list-header></ion-list-header>
+    <ion-item button lines="none" href="https://takethatdesign.com" target="_blank">
+      <ion-icon name="open-outline" slot="start" color="primary"></ion-icon>
+      <ion-label color="primary">
+        Visit <strong>Take That Design</strong>
+      </ion-label>
+    </ion-item>
+    <ion-list-header></ion-list-header>
+  </ion-list>
+</ion-content>

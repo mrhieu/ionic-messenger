@@ -1,17 +1,70 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-avatar class="button-avatar" (click)="openSettings()">
+        <img src="assets/img/avatars/7.jpg" alt="">
+      </ion-avatar>
+    </ion-buttons>
+
+    <ion-title>Chats</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="story-list scroll-horizontal">
+    <div class="scroll-item">
+      <div class="item-new">
+        <ion-icon name="add"></ion-icon>
+      </div>
+      <div class="item-label">
+        Your story
+      </div>
+    </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <div class="scroll-item" *ngFor="let i of [1,2,3,4,5,6,7,8,9]">
+      <div class="item-avatar">
+        <ion-avatar class="avatar-md has-status">
+          <img src="assets/img/avatars/{{i}}.jpg" alt="">
+          <div class="avatar-status">
+            <div class="online-status active"></div>
+          </div>
+        </ion-avatar>
+      </div>
+      <div class="item-label">
+        Tony
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-list">
+    <ion-list>
+      <ion-item class="chat-item" [class.unread]="i < 4" lines="none" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">
+        <ion-avatar class="avatar-md has-status{{i % 3 === 0 ? ' avatar-stacked' : ''}}" slot="start">
+          <img src="assets/img/avatars/{{i}}.jpg" alt="">
+          <img src="assets/img/avatars/{{i % 12 + 3}}.jpg" alt="">
+          <div class="avatar-status">
+            <div class="online-status active"></div>
+          </div>
+        </ion-avatar>
+        <ion-label>
+          <h2 class="chat-name">Conversation {{i}}</h2>
+          <div class="chat-description">
+            <div class="content-preview">This is a great Ionic package</div>
+            <div class="time-ago">· 2:55 pm</div>
+          </div>
+        </ion-label>
+        <div class="online-status unread" slot="end"></div>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

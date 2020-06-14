@@ -1,1 +1,7 @@
+.tab-bar-no-border {
+  --border: none;
+}
 
+ion-tab-button {
+  --color-selected: var(--ion-color-dark);
+}

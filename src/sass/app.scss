@@ -1,0 +1,47 @@
+ion-avatar {
+  &.has-status {
+    position: relative;
+  }
+
+  &.avatar-md {
+    width: 56px;
+    height: 56px;
+  }
+
+  &.avatar-lg {
+    display: inline-block;
+    width: 88px;
+    height: 88px;
+  }
+
+  .avatar-status {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.online-status {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background-color: var(--ion-color-medium);
+
+  &.active {
+    background-color: var(--ion-color-success);
+  }
+
+  &.unread {
+    background-color: var(--ion-color-secondary);
+  }
+}
+
+.list-header-custom {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--ion-color-medium);
+}
