@@ -3,6 +3,11 @@ ion-avatar {
     position: relative;
   }
 
+  &.avatar-sm {
+    width: 30px;
+    height: 30px;
+  }
+
   &.avatar-md {
     width: 56px;
     height: 56px;
@@ -19,15 +24,20 @@ ion-avatar {
     right: 0;
     bottom: 0;
   }
+
+  .online-status {
+    width: 16px;
+    height: 16px;
+    border: 3px solid #fff;
+  }
 }
 
 .online-status {
   display: inline-block;
   vertical-align: middle;
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  border: 3px solid #fff;
   background-color: var(--ion-color-medium);
 
   &.active {

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-avatar class="button-avatar" (click)="openSettings()">
+      <ion-avatar class="avatar-sm ion-margin-start" (click)="openSettings()">
         <img src="assets/img/avatars/7.jpg" alt="">
       </ion-avatar>
     </ion-buttons>
@@ -48,7 +48,14 @@
 
   <div class="chat-list">
     <ion-list>
-      <ion-item class="chat-item" [class.unread]="i < 4" lines="none" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]">
+      <ion-item
+        class="chat-item"
+        [class.unread]="i < 4"
+        lines="none"
+        *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]"
+        routerLink="/chat"
+        detail="false"
+      >
         <ion-avatar class="avatar-md has-status{{i % 3 === 0 ? ' avatar-stacked' : ''}}" slot="start">
           <img src="assets/img/avatars/{{i}}.jpg" alt="">
           <img src="assets/img/avatars/{{i % 12 + 3}}.jpg" alt="">

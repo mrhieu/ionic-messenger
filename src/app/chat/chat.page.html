@@ -1,0 +1,91 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-avatar class="avatar-sm ion-margin-start">
+        <img src="assets/img/avatars/5.jpg" alt="">
+      </ion-avatar>
+    </ion-buttons>
+
+    <ion-title class="ion-text-left">Scarlet Witch</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="call"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="videocam"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="chat-list">
+    <div class="chat-item" *ngFor="let item of messages" [ngClass]="{'chat-item-sender': item.isSender}">
+      <div class="chat-timestamp">
+        {{item.timestamp}}
+      </div>
+
+      <div class="chat-item-content">
+        <div class="chat-avatar" *ngIf="!item.isSender">
+          <ion-avatar class="avatar-sm">
+            <img [src]="item.avatar">
+          </ion-avatar>
+        </div>
+
+        <div class="chat-item-bubble" [ngClass]="{'bubble-image': item.type === 'image'}">
+          <div class="chat-body" *ngIf="item.type !== 'image'" [innerHtml]="nl2br(item.body)"></div>
+          <img [src]="item.body" *ngIf="item.type === 'image'">
+        </div>
+
+        <div class="chat-item-reaction" *ngIf="!item.isSender && item.type === 'image'">
+          <ion-icon name="share-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="chat-item-status" *ngIf="item.isSender">
+        Seen
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="!isFocus">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="image"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="mic"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start" *ngIf="isFocus">
+      <ion-button>
+        <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-input
+      class="message-input"
+      placeholder="Aa"
+      [(ngModel)]="messageInput"
+      (ionFocus)="toggleFocus(true)"
+      (ionBlur)="toggleFocus(false)">
+    </ion-input>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="thumbs-up-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

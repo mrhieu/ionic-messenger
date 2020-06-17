@@ -1,17 +1,55 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-avatar class="avatar-sm ion-margin-start" (click)="openSettings()">
+        <img src="assets/img/avatars/7.jpg" alt="">
+      </ion-avatar>
+    </ion-buttons>
+
+    <ion-title>People</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment value="active" class="full-width">
+      <ion-segment-button value="active">
+        <ion-label>ACTIVE (168)</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label>STORIES (986)</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="chat-list">
+    <ion-list>
+      <ion-item detail lines="none">
+        <ion-icon slot="start" name="videocam"></ion-icon>
+        <ion-label>
+          <h2><strong>Create a Room</strong></h2>
+          <p>Use a link to video chat with anyone</p>
+        </ion-label>
+      </ion-item>
+      <ion-list-header class="list-header-custom">
+        ACTIVE NOW
+      </ion-list-header>
+      <ion-item
+        class="chat-item"
+        [class.unread]="i < 4"
+        *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12]"
+        lines="none"
+      >
+        <ion-avatar class="avatar-md has-status" slot="start">
+          <img src="assets/img/avatars/{{i}}.jpg" alt="">
+          <div class="avatar-status">
+            <div class="online-status active"></div>
+          </div>
+        </ion-avatar>
+        <ion-label>
+          <h2><strong>Friend Name {{i}}</strong></h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
