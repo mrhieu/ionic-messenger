@@ -10,11 +10,11 @@
   </ion-toolbar>
 
   <ion-toolbar>
-    <ion-segment value="active" class="full-width">
+    <ion-segment [(ngModel)]="segmentView" class="full-width">
       <ion-segment-button value="active">
         <ion-label>ACTIVE (168)</ion-label>
       </ion-segment-button>
-      <ion-segment-button>
+      <ion-segment-button value="story">
         <ion-label>STORIES (986)</ion-label>
       </ion-segment-button>
     </ion-segment>
@@ -22,7 +22,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="chat-list">
+  <div class="chat-list" *ngIf="segmentView === 'active'">
     <ion-list>
       <ion-item detail lines="none">
         <ion-icon slot="start" name="videocam"></ion-icon>
@@ -51,5 +51,26 @@
         </ion-label>
       </ion-item>
     </ion-list>
+  </div>
+
+  <div class="story-list" *ngIf="segmentView === 'story'">
+    <ion-row>
+      <ion-col *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13]" size="6">
+        <ion-card class="card-custom">
+          <div class="card-thumbnail" [style.backgroundImage]="'url(assets/img/img_' + (i%4 + 1) + '.png)'">
+            <ion-avatar class="avatar-md has-status" slot="start">
+              <img src="assets/img/avatars/{{i%12 + 1}}.jpg" alt="">
+              <div class="avatar-status">
+                <div class="online-status active"></div>
+              </div>
+            </ion-avatar>
+
+            <div class="card-caption">
+              Tony Stark
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>
