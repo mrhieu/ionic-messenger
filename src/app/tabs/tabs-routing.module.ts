@@ -9,16 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        children: [
-          {
-            path: '',
-            loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          },
-          {
-            path: 'chat',
-            loadChildren: () => import('../chat/chat.module').then( m => m.ChatPageModule)
-          },
-        ]
+        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
         path: 'tab2',

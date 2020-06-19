@@ -1,6 +1,23 @@
+/* Chat UI v2.1.0 by Hieu Pham<mr_hie@yahoo.com> */
+
 .chat-list {
   .chat-item {
     margin-bottom: 8px;
+
+    &.chat-item-sender {
+      text-align: right;
+
+      .chat-item-content {
+        justify-content: flex-end;
+      }
+
+      .chat-body {
+        color: #fff;
+        background: var(--ion-color-primary);
+        border-radius: 20px;
+        border-color: transparent;
+      }
+    }
   }
 
   .chat-timestamp {
@@ -14,30 +31,29 @@
   .chat-item-status {
     font-size: 13px;
     color: var(--ion-color-medium);
-  }
-
-  .chat-avatar {
     margin-right: 8px;
-    align-self: flex-end;
-    width: 40px;
-    height: 40px;
-
-    img {
-      display: inline-block;
-      width: 100%;
-      border-radius: 50%;
-    }
   }
 
   .chat-item-content {
     display: flex;
     flex-direction: row;
+    margin-bottom: 4px;
+
+    .chat-avatar {
+      margin-right: 8px;
+      align-self: flex-end;
+
+      img {
+        display: inline-block;
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
   }
 
   .chat-item-bubble {
     position: relative;
     max-width: 75%;
-    margin-bottom: 4px;
 
     .chat-body {
       display: inline-block;
@@ -47,37 +63,15 @@
       white-space: normal;
       max-width: 100%;
       text-align: left;
-
-      &.photo {
-        padding: 0;
-      }
     }
 
     &.bubble-image {
-      .icon-tail {
-        display: none;
-      }
+      font-size: 0;
+
       img {
         width: 100%;
         max-width: 480px;
         border-radius: 16px;
-      }
-    }
-  }
-
-  .chat-item {
-    &.chat-item-sender {
-      text-align: right;
-
-      .chat-item-content {
-        justify-content: flex-end;
-      }
-
-      .chat-body {
-        color: #fff;
-        background: var(--ion-color-primary);
-        border-radius: 20px;
-        border-color: transparent;
       }
     }
   }
